@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class Graph {
     public List<Node> nodes;
+    public static int infinity = 20;
 
     public Graph() {
         nodes = new ArrayList<>();
@@ -19,9 +20,9 @@ public class Graph {
 
     public void setup() {
         for (Node n : nodes) {
-            int[] table =  n.getTable();
-            for (int i = 0; i < table.length; i++) {
-                if (table[i] > 0) {
+            int[] distance =  n.getDistance();
+            for (int i = 0; i < distance.length; i++) {
+                if (distance[i] < infinity && distance[i] > 0) {
                     n.addNeighbour(nodes.get(i));
                 }
             }
@@ -31,6 +32,17 @@ public class Graph {
     public List<Node> getNodes() {
         return nodes;
     }
+
+    public void cutLink(int node1, int node2) {
+        Node n1 = nodes.get(node1);
+        Node n2 = nodes.get(node2);
+
+        if (n1.getNeighbours().contains(n2) && n2.getNeighbours().contains(n1)) {
+            n1.removeNeighbour(n2);
+            n2.removeNeighbour(n1);
+        }
+    }
+
 
     public String toString() {
         StringBuilder sb = new StringBuilder();

@@ -1,15 +1,17 @@
 package com.company;
 
+import java.util.List;
+
 /**
  * Created by morti on 23/02/2017.
  */
 public class Message {
 
-    int sender;
-    int[] message;
+    private int sender;
+    private List<Link> message;
     private int length;
 
-    public Message(int sender, int[] message, int length) {
+    public Message(int sender, List<Link> message, int length) {
         this.sender = sender;
         this.message = message;
         this.length = length;
@@ -19,7 +21,7 @@ public class Message {
         return sender;
     }
 
-    public int[] getMessage() {
+    public List<Link> getMessage() {
         return message;
     }
 

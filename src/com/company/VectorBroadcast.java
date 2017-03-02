@@ -3,7 +3,7 @@ package com.company;
 /**
  * Created by morti on 23/02/2017.
  */
-public class VectorBroadcast imp{
+public class VectorBroadcast{
 
     private Graph g;
 

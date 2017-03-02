@@ -7,8 +7,6 @@ import java.util.List;
 
 public class Main {
 
-    public static int infinity = 20;
-
     public static void main(String[] args) {
         Graph g = new Graph();
         try {
@@ -28,7 +26,7 @@ public class Main {
                         node_num = j;
                     }
                     if (token == -1) {
-                        token = infinity;
+                        token = Graph.infinity;
                     }
                     nodes[j] = token;
 
@@ -47,6 +45,23 @@ public class Main {
         List<Node> nodes = g.getNodes();
         System.out.println(g.toString());
         System.out.println();
+
+        nodes.forEach(Node::broadcast);
+        nodes.forEach(Node::update);
+        System.out.println(g.toString());
+
+        g.cutLink(3, 4);
+        nodes.forEach(Node::update);
+        System.out.println(g.toString());
+
+        nodes.forEach(Node::broadcast);
+        nodes.forEach(Node::update);
+        System.out.println(g.toString());
+
+        nodes.forEach(Node::broadcast);
+        nodes.forEach(Node::update);
+        System.out.println(g.toString());
+
         nodes.forEach(Node::broadcast);
         nodes.forEach(Node::update);
         System.out.println(g.toString());
