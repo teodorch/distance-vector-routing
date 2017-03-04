@@ -40,30 +40,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         g.setup();
-        List<Node> nodes = g.getNodes();
-        System.out.println(g.toString());
-        System.out.println();
+        g.setSplitHorizon(true);
+        UserInterface ui = UserInterface.getUserInterface(g);
 
-        nodes.forEach(Node::broadcast);
-        nodes.forEach(Node::update);
-        System.out.println(g.toString());
-
-        g.cutLink(3, 4);
-        nodes.forEach(Node::update);
-        System.out.println(g.toString());
-
-        nodes.forEach(Node::broadcast);
-        nodes.forEach(Node::update);
-        System.out.println(g.toString());
-
-        nodes.forEach(Node::broadcast);
-        nodes.forEach(Node::update);
-        System.out.println(g.toString());
-
-        nodes.forEach(Node::broadcast);
-        nodes.forEach(Node::update);
-        System.out.println(g.toString());
+        //g.run();
     }
 }
